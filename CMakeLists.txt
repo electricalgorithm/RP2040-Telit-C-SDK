@@ -2,21 +2,21 @@ cmake_minimum_required(VERSION 3.13)
 
 include(pico_sdk_import.cmake)
 
-project(Telit2Host C CXX ASM)
+project(TELIT_SDK_PICO_C C CXX ASM)
 
 set(CMAKE_C_STANDART 11)
 set(CMAKE_CXX_STANDART 17)
 
 pico_sdk_init()
 
-add_executable(telitHost telitHost.c)
+add_executable(firmware firmware.c)
 
-pico_enable_stdio_usb(telitHost 1)
-pico_enable_stdio_uart(telitHost 0)
+pico_enable_stdio_usb(firmware 1)
+pico_enable_stdio_uart(firmware 0)
 
-pico_add_extra_outputs(telitHost)
+pico_add_extra_outputs(firmware)
 
-target_link_libraries(telitHost 
+target_link_libraries(firmware 
                         pico_stdlib 
                         pico_stdio 
                         pico_time
